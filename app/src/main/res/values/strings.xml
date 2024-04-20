@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string name="menu">Menu</string>
+    <string name="loco">prpck</string>
+    <string name="Profile">Profile</string>
+    <string name="save">Name</string>
+    <string name="DOB">Date of birth</string>
+    <string name="cou">Country</string>
+    <string name="gender">Gender</string>
+    <string name="name">SAVE</string>
+    <string name="profile_description">profile_description</string>
     <string-array name="country_names">
         <item>Afghanistan</item>
         <item>Albania</item>
