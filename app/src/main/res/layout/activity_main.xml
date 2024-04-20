@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/textview_dob"
             android:layout_width="199dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_toEndOf="@id/calendar_image"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
@@ -158,12 +158,5 @@
             android:gravity="center_vertical" />
     </RelativeLayout>
 
-    <!-- RecyclerView for Countries -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/countries_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/container_gender"
-        android:layout_marginTop="47dp" />
 
 </RelativeLayout>

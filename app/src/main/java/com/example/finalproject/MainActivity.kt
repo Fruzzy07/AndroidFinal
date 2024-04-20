@@ -6,13 +6,6 @@ import android.os.Bundle
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +22,18 @@ class MainActivity : AppCompatActivity() {
         val containerDOB = findViewById<RelativeLayout>(R.id.container_dob)
         val containerCountry = findViewById<RelativeLayout>(R.id.container_country)
         val containerGender = findViewById<RelativeLayout>(R.id.container_gender)
+
+        containerCountry.setOnClickListener {
+            val countries = resources.getStringArray(R.array.country_names)
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setTitle("Choose a Country")
+                .setItems(countries) { _, which ->
+                    // Handle click here. which is the index of the selected item.
+                    val selectedCountry = countries[which]
+                    textViewCountry.text = selectedCountry
+                }
+            dialogBuilder.create().show()
+        }
 
         // Set click listener for Date of Birth container
         containerDOB.setOnClickListener {
@@ -56,9 +61,6 @@ class MainActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
-        containerCountry.setOnClickListener {
-            fetchCountries()
-        }
 
         containerGender.setOnClickListener {
             // Display a dialog with two options: Male and Female
@@ -75,35 +77,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun fetchCountries() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api-ninjas.com/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val service = retrofit.create(CountryService::class.java)
-        val call = service.getCountries()
-
-        call.enqueue(object : Callback<List<Country>> {
-            override fun onResponse(call: Call<List<Country>>, response: Response<List<Country>>) {
-                if (response.isSuccessful) {
-                    val countries = response.body()
-                    updateCountriesRecyclerView(countries ?: emptyList()) // Pass countries to updateCountriesRecyclerView
-                } else {
-                    textViewCountry.text = "Failed to fetch countries: ${response.code()}"
-                }
-            }
-
-            override fun onFailure(call: Call<List<Country>>, t: Throwable) {
-                textViewCountry.text = "Failed to fetch countries: ${t.message}"
-            }
-        })
-    }
-
-    // Function to update RecyclerView with fetched countries
-    private fun updateCountriesRecyclerView(countries: List<Country>) {
-        val recyclerView = findViewById<RecyclerView>(R.id.countries_recyclerview)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = CountryAdapter(countries)
-    }
 }
