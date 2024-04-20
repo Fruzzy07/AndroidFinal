@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Profile Image -->
     <ImageView
         android:id="@+id/profile_image"
         android:layout_width="match_parent"
@@ -10,6 +11,7 @@
         android:layout_marginTop="46dp"
         android:src="@drawable/ic_profile" />
 
+    <!-- Back Button -->
     <ImageButton
         android:id="@+id/button_back"
         android:layout_width="50dp"
@@ -18,6 +20,7 @@
         android:background="?android:selectableItemBackground"
         android:src="@drawable/menu2" />
 
+    <!-- Profile Title -->
     <TextView
         android:id="@+id/textview_profile_title"
         android:layout_width="wrap_content"
@@ -28,6 +31,7 @@
         android:text="Profile"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+    <!-- Save Button -->
     <Button
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
@@ -38,6 +42,7 @@
         android:layout_marginBottom="159dp"
         android:text="SAVE" />
 
+    <!-- Name EditText -->
     <EditText
         android:id="@+id/edittext_name"
         android:layout_width="380dp"
@@ -48,7 +53,7 @@
         android:hint="Name"
         android:inputType="textPersonName" />
 
-    <!-- Container for the Date of Birth button and icon -->
+    <!-- Container for Date of Birth -->
     <RelativeLayout
         android:id="@+id/container_dob"
         android:layout_width="390dp"
@@ -60,17 +65,20 @@
         android:clickable="true"
         android:focusable="true">
 
+        <!-- Date of Birth Icon -->
         <ImageView
             android:id="@+id/calendar_image"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:src="@drawable/ic_calendar" />
+            android:src="@drawable/computer_icons_calendar_date_others_thumbnail__1_" />
 
+        <!-- Date of Birth TextView -->
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/textview_dob"
+            android:layout_width="199dp"
+            android:layout_height="40dp"
             android:layout_toEndOf="@id/calendar_image"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
@@ -80,7 +88,7 @@
             android:gravity="center_vertical" />
     </RelativeLayout>
 
-    <!-- Container for the Country button and icon -->
+    <!-- Container for Country -->
     <RelativeLayout
         android:id="@+id/container_country"
         android:layout_width="390dp"
@@ -92,6 +100,7 @@
         android:clickable="true"
         android:focusable="true">
 
+        <!-- Country Icon -->
         <ImageView
             android:id="@+id/country_image"
             android:layout_width="40dp"
@@ -99,7 +108,10 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:src="@drawable/country" />
+
+        <!-- Country TextView -->
         <TextView
+            android:id="@+id/textview_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/country_image"
@@ -111,7 +123,7 @@
             android:gravity="center_vertical" />
     </RelativeLayout>
 
-    <!-- Container for the Gender button and icon -->
+    <!-- Container for Gender -->
     <RelativeLayout
         android:id="@+id/container_gender"
         android:layout_width="390dp"
@@ -123,6 +135,7 @@
         android:clickable="true"
         android:focusable="true">
 
+        <!-- Gender Icon -->
         <ImageView
             android:id="@+id/gender_image"
             android:layout_width="40dp"
@@ -131,7 +144,9 @@
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_gender" />
 
+        <!-- Gender TextView -->
         <TextView
+            android:id="@+id/textview_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/gender_image"
@@ -142,5 +157,13 @@
             android:paddingEnd="10dp"
             android:gravity="center_vertical" />
     </RelativeLayout>
+
+    <!-- RecyclerView for Countries -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/countries_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/container_gender"
+        android:layout_marginTop="47dp" />
 
 </RelativeLayout>
