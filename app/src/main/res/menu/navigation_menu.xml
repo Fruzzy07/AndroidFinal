@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profile_button"
+        android:title="Profile"
+        android:icon="@drawable/baseline_perm_identity_24"/>
+    <item
+        android:id="@+id/month_gone_button"
+        android:title="Month Gone"
+        android:icon="@drawable/baseline_calendar_month_24"/>
+
+
+</menu>
