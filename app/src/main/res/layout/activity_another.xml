@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F8FF">
+
+    <!-- Title at the top -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Track your life"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:padding="16dp" />
+
+    <!-- Section for WEEKS DONE and WEEKS LEFT -->
+    <LinearLayout
+        android:id="@+id/weeks_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/weeks_done_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WEEKS DONE"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/weeks_done_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1,616"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/weeks_left_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WEEKS LEFT"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/weeks_left_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2,772"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- List Section with two items -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/weeks_section"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/vladik_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vladik Done"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Placeholder for grid-like background on the right side -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:background="#000000" />
+</RelativeLayout>
