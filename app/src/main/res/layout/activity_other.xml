@@ -1,15 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OtherActivity">
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textview_country_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is YourOtherActivity"
-        android:textSize="24sp"
-        android:layout_centerInParent="true"/>
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:text="Country Name:"/>
+
+    <TextView
+        android:id="@+id/textview_life_expectancy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="16dp"
+        android:text="Life Expectancy:"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Month Gone"
+        app:layout_constraintEnd_toEndOf="@id/textview_life_expectancy"
+        app:layout_constraintStart_toStartOf="@id/textview_life_expectancy"
+        app:layout_constraintTop_toBottomOf="@id/textview_life_expectancy"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/yearsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="vertical"
+        android:paddingTop="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false" /> <!-- Необходимо, чтобы числа не обрезались сверху -->
 
 </RelativeLayout>

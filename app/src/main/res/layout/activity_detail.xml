@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textview_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:text="Detail"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/edittext_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_detail"
+        android:layout_marginTop="18dp"
+        android:hint="Enter your notes here"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@drawable/edittext_background"
+        android:inputType="textMultiLine"
+        android:minHeight="100dp"
+        android:gravity="top"
+        android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:id="@+id/textview_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:text="How was your month?"
+        android:layout_below="@id/edittext_notes"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_instruction"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <ImageButton
+            android:id="@+id/button_good"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:contentDescription="Good Month"
+            android:src="@drawable/good_ok" />
+
+        <ImageButton
+            android:id="@+id/button_ok"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:src="@drawable/ic_yellow_ok"
+            android:contentDescription="OK Month"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageButton
+            android:id="@+id/button_bad"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@null"
+            android:src="@drawable/ic_red_smile"
+            android:contentDescription="Bad Month"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
