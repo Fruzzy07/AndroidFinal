@@ -29,15 +29,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Month Gone"
-        app:layout_constraintEnd_toEndOf="@id/textview_life_expectancy"
-        app:layout_constraintStart_toStartOf="@id/textview_life_expectancy"
-        app:layout_constraintTop_toBottomOf="@id/textview_life_expectancy"
+        android:textSize="24sp" />
+    <TextView
+        android:id="@+id/title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Month Left"
         android:textSize="24sp" />
 
     <LinearLayout

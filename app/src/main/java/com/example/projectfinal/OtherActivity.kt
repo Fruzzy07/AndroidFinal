@@ -16,10 +16,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.Calendar
+import kotlin.math.ceil
+
 
 class OtherActivity : AppCompatActivity() {
     private lateinit var textViewCountryName: TextView
     private lateinit var textViewLifeExpectancy: TextView
+    private lateinit var textViewMonthGone: TextView
+    private lateinit var textViewMonthLeft: TextView
     private lateinit var monthAdapter: MonthAdapter
 
     private lateinit var detailActivityLauncher: ActivityResultLauncher<Intent>
@@ -46,6 +50,7 @@ class OtherActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
         val currentYear = calendar.get(Calendar.YEAR)
         val currentMonth = calendar.get(Calendar.MONTH) + 1
+        val currentDay = calendar.get(Calendar.DAY_OF_MONTH)
 
         val sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
         val dobString = sharedPreferences.getString("dob", "")
@@ -59,15 +64,23 @@ class OtherActivity : AppCompatActivity() {
             val dobCalendar = Calendar.getInstance().apply {
                 set(dobYear, dobMonth - 1, dobDay) // Months are indexed from 0
             }
+            val daysGone = currentDay - dobDay
 
             // Calculate the difference in months
             val yearsDifference = currentYear - dobYear
             val monthsDifference = currentMonth - dobMonth
-            val monthsGone = yearsDifference * 12 + monthsDifference
+            val monthsGone = if (daysGone >= 0) {
+                yearsDifference * 12 + monthsDifference + ceil(daysGone.toDouble() / 30.44).toInt()
+            } else {
+                yearsDifference * 12 + monthsDifference
+            }
 
 
             textViewCountryName = findViewById(R.id.textview_country_name)
             textViewLifeExpectancy = findViewById(R.id.textview_life_expectancy)
+            textViewMonthGone = findViewById(R.id.title)
+            textViewMonthLeft = findViewById(R.id.title_left)
+
 
             // Retrieve the selected country and gender from SharedPreferences
             val selectedCountry = sharedPreferences.getString("country", "")
@@ -87,6 +100,9 @@ class OtherActivity : AppCompatActivity() {
                             textViewLifeExpectancy.text = "Life Expectancy: $lifeExpectancy years"
 
                             val totalMonths = (lifeExpectancy * 12).toInt()
+                            val monthsLeft = totalMonths - monthsGone
+                            textViewMonthGone.text = "Month Gone: $monthsGone"
+                            textViewMonthLeft.text = "Month Left: $monthsLeft"
 
 
 
@@ -99,8 +115,8 @@ class OtherActivity : AppCompatActivity() {
                             val yearsCount = (totalMonths + 11) / 12  // Округляем в большую сторону, чтобы покрыть все месяцы
                             for (i in 0 until yearsCount) {
                                 val yearTextView = TextView(this@OtherActivity)
-                                yearTextView.text = i.toString()
-                                yearTextView.textSize = 16f
+//                                yearTextView.text = i.toString()
+//                                yearTextView.textSize = 16f
                                 yearTextView.layoutParams = LinearLayout.LayoutParams(
                                     LinearLayout.LayoutParams.WRAP_CONTENT,
                                     0,
@@ -119,6 +135,7 @@ class OtherActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<List<Country>>, t: Throwable) {
                     Toast.makeText(this@OtherActivity, "Failed to fetch data: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
+
             })
         }
     }
